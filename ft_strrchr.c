@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:54:14 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/15 17:54:37 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/16 10:35:48 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ char	*ft_strrchr(const char *s, int c)
 	ch = (char) c;
 	str = (char *) s;
 	res = NULL;
-	while (str[++i])
+	while (str[i])
+	{
 		if (str[i] == ch)
 			res = &str[i];
+		i++;
+	}
 	if (str[i] == ch)
 		res = &str[i];
 	return (res);
