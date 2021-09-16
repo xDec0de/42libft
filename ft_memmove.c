@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 13:19:48 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/15 17:50:14 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:39:32 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		while (len-- > 0)
 			dststr[len] = srcstr[len];
 	else
-		while (++i < len && srcstr != dststr)
+	{
+		while (i < len && srcstr != dststr)
+		{
 			dststr[i] = srcstr[i];
+			i++;
+		}
+	}
 	return (dst);
 }

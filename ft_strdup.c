@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 20:56:58 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/15 17:44:59 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/16 10:49:32 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	len = 0;
 	while (s[len])
-		str[len] = s[len++];
+	{
+		str[len] = s[len];
+		len++;
+	}
 	str[len] = '\0';
 	return (str);
 }

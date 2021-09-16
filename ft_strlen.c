@@ -6,11 +6,11 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:04:55 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/15 17:46:42 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/16 14:19:45 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const	char *str)
 {
