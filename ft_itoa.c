@@ -6,12 +6,11 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 15:14:54 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/17 16:04:13 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:14:57 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static unsigned int	get_digits(long nb)
 {

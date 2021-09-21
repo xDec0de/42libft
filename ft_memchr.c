@@ -6,13 +6,11 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 19:28:45 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/16 16:41:08 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:15:18 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
