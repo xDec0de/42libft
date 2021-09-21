@@ -6,74 +6,92 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 13:01:19 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/17 15:12:43 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/20 18:03:35 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static size_t	find_next(char const *str, char c, size_t i)
+static int	get_word_nbr(const char *s, char c)
 {
-	while (str[i])
-	{
-		if (str[i] == c && str[i - 1] != c)
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-static size_t	get_split_count(char const *str, char c)
-{
-	size_t	i;
-	size_t	res;
+	int	i;
+	int	w_nbr;
 
 	i = 0;
-	res = 0;
-	while (str[i])
+	w_nbr = 0;
+	while (s[i])
 	{
-		if (str[i] == c && str[i - 1] != c)
-			res++;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			w_nbr++;
 		i++;
 	}
-	return (res + 2);
+	return (w_nbr);
 }
 
-char	**ft_split(char const *s, char c)
+static int	get_word_len(const char *s, char c, int i)
 {
-	char	**res;
-	size_t	i;
-	size_t	j;
-	size_t	si;
-	size_t	next;
+	int	w_len;
 
-	res = malloc(get_split_count(s, c));
-	i = 0;
-	si = 0;
-	while (i <= get_split_count(s, c))
+	w_len = 0;
+	while (s[i])
 	{
-		next = find_next(s, c, j);
-		res[i] = malloc(next * sizeof(char));
-		j = 0;
-		while (j <= next)
-		{
-			res[i][j] = s[si];
+		if (s[i] != c)
+			w_len++;
+		else
+			break ;
+		i++;
+	}
+	return (w_len);
+}
+
+static void	*free_mem(char **split, int w_nbr)
+{
+	int	i;
+
+	i = 0;
+	while (i < w_nbr)
+		free(split[i++]);
+	free(split[i]);
+	return (NULL);
+}
+
+static char	**fill_split(const char *s, char c, int w_nbr, char **split)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	w_len;
+
+	i = 0;
+	j = 0;
+	while (i < w_nbr)
+	{
+		while (s[j] == c)
 			j++;
-			si++;
-		}
+		w_len = get_word_len(s, c, j);
+		split[i] = (char *) malloc((w_len + 1) * sizeof(char));
+		if (!split[i])
+			return (free_mem(split, w_nbr));
+		k = 0;
+		while (k < w_len)
+			split[i][k++] = s[j++];
+		split[i][k] = '\0';
 		i++;
 	}
-	return (res);
+	split[i] = NULL;
+	return (split);
 }
 
-int	main(void)
+char	**ft_split(const char *s, char c)
 {
-	char	*str = "This;is;a;test";
-	char	**res = ft_split(str, ';');
+	int		w_nbr;
+	char	**split;
 
-	printf("%s\n", res[0]);
-	printf("%s\n", res[1]);
-	printf("%s\n", res[2]);
-	printf("%s\n", res[3]);
+	if (!s)
+		return (NULL);
+	w_nbr = get_word_nbr(s, c);
+	split = (char **) malloc(sizeof (char *) * (w_nbr + 1));
+	if (!split)
+		return (NULL);
+	return (fill_split(s, c, w_nbr, split));
 }
