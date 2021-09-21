@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 15:02:31 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/16 14:12:13 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/21 13:55:57 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst[dest_len + i] = src[i];
 		i++;
 	}
-	dst[dest_len + i] = '\0';
+	if (i != 0)
+		dst[dest_len + i] = '\0';
 	if (dstsize < dest_len)
 		count = dstsize + src_len;
 	else
