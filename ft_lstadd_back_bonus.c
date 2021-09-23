@@ -6,11 +6,11 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:28:57 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/21 10:10:24 by danimart         ###   ########.fr       */
+/*   Updated: 2021/09/23 10:12:13 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
