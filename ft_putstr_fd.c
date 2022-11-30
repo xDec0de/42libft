@@ -6,7 +6,7 @@
 /*   By: danimart <danimart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:32:55 by danimart          #+#    #+#             */
-/*   Updated: 2021/09/17 16:45:39 by danimart         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:42:13 by danimart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,5 @@ void	ft_putstr_fd(char *s, int fd)
 	if (!s || !fd)
 		return ;
 	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+		i += write(fd, &s[i], 1);
 }
