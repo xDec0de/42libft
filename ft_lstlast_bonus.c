@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:33:40 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:33:40 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 20:57:23 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstlast(t_list *lst)
 	struct s_list	*list;
 
 	i = 1;
-	if (!lst)
+	if (lst == NULL)
 		return (0);
 	list = lst;
 	while (list->next != NULL)

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:33:19 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:33:20 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 20:55:07 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	struct s_list	*list;
 
-	if (!lst || !del)
+	if (lst == NULL || del == NULL)
 		return ;
 	list = *lst;
-	while (list)
+	while (list != NULL)
 	{
 		del(list->content);
 		free(list);

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:36:17 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:36:17 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:30:01 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (!needle[0])
+	if (needle[0] == '\0')
 		return ((char *) haystack);
 	while (haystack[i] && i < len)
 	{
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				break ;
 			j++;
 		}
-		if (!needle[j])
+		if (needle[j] == '\0')
 			return ((char *) &haystack[i]);
 		i++;
 	}

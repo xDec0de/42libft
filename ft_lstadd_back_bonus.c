@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:33:09 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:33:10 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 20:54:14 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	struct s_list	*list;
 
-	if (!lst)
+	if (lst == NULL)
 		return ;
 	if (*lst == NULL)
 		*lst = new;

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:36:26 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:36:27 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:32:15 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	str_contains(const char *str, char c)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str[i] == c)
 			return (1);
@@ -32,7 +32,7 @@ char	*ft_strtrim(const char *s, const char *set)
 	int		end;
 	char	*strim;
 
-	if (!s || !set)
+	if (s == NULL || set == NULL)
 		return (NULL);
 	start = 0;
 	while (s[start] && str_contains(set, s[start]))
@@ -41,7 +41,7 @@ char	*ft_strtrim(const char *s, const char *set)
 	while (end > start && str_contains(set, s[end - 1]))
 		end--;
 	strim = (char *) ft_calloc(end - start + 1, sizeof(char));
-	if (!strim)
+	if (strim == NULL)
 		return (NULL);
 	while (end > start)
 	{

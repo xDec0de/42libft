@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:35:58 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:35:58 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:26:56 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 
 	i = 0;
 	cont = 0;
-	while (src[cont])
+	while (src[cont] != '\0')
 		cont++;
 	if (dstsize == 0)
 		return (cont);
-	while (src[i] && i < (dstsize - 1))
+	while (src[i] != '\0' && i < (dstsize - 1))
 	{
 		dest[i] = src[i];
 		i++;

@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:09 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:37:09 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:32:36 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	size;
 	char	*substr;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	size = ft_strlen(&s[start]);
 	if (size < len)
@@ -26,10 +26,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr = (char *)ft_calloc(len + 1, sizeof(char));
 	if (start >= ft_strlen(s))
 		return (substr);
-	if (!substr)
+	if (substr == NULL)
 		return (NULL);
 	i = 0;
-	while (s[start] && i < len)
+	while (s[start] != '\0' && i < len)
 	{
 		substr[i] = s[start];
 		start++;

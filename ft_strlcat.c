@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:35:53 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:35:54 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:26:11 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	dest_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	while (src[i] && (dest_len + i) < dstsize - 1 && dstsize != 0)
+	while (src[i] != '\0' && (dest_len + i) < dstsize - 1 && dstsize != 0)
 	{
 		dst[dest_len + i] = src[i];
 		i++;

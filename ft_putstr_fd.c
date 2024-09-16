@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:48 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:34:49 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:21:15 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	size_t	i;
 
 	i = 0;
-	if (!s || !fd)
+	if (s == NULL || fd == 0)
 		return ;
-	while (s[i])
+	while (s[i] != '\0')
 		i += write(fd, &s[i], 1);
 }

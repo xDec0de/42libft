@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:02 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:34:02 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 20:59:58 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	ch;
 
 	i = 0;
-	ch = (unsigned char)c;
-	str = (unsigned char *)s;
+	ch = (unsigned char) c;
+	str = (unsigned char *) s;
 	while (i < n)
 	{
 		if (str[i] == ch)

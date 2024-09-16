@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:36:12 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:36:13 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:28:54 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_strncmp(const char	*s1, const char *s2, size_t n)
 	i = 0;
 	str1 = (const unsigned char *) s1;
 	str2 = (const unsigned char *) s2;
-	while (i <= (n - 1) && n != 0 && (str1[i] || str2[i]))
+	while (i <= (n - 1) && n != 0 && (str1[i] != '\0' || str2[i] != '\0'))
 	{
 		if (str1[i] != str2[i])
 			return (str1[i] - str2[i]);

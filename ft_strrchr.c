@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:36:21 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:36:22 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:31:01 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 	ch = (char) c;
 	str = (char *) s;
 	res = NULL;
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str[i] == ch)
 			res = &str[i];
