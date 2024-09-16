@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:35:17 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 21:22:19 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:37:09 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static char	**fill_split(const char *s, char c, int w_nbr, char **split)
 			j++;
 		w_len = get_word_len(s, c, j);
 		split[i] = (char *) malloc((w_len + 1) * sizeof(char));
-		if (split[i] == '\0')
+		if (split[i] == NULL)
 			return (free_mem(split, w_nbr));
 		k = 0;
 		while (k < w_len)
