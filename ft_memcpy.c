@@ -6,28 +6,26 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:12 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 21:03:40 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/18 18:48:41 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// This function is weird, needs a code revision.
-
 void	*ft_memcpy(void	*dst, void const *src, size_t n)
 {
 	size_t		i;
-	char		*d;
-	char		*s;
+	char		*dst_casted;
+	char		*src_casted;
 
 	i = 0;
-	d = (char *) dst;
-	s = (char *) src;
-	if (!src && !dst && n > 0)
+	if (src == NULL || dst == NULL)
 		return (dst);
+	dst_casted = (char *) dst;
+	src_casted = (char *) src;
 	while (i < n)
 	{
-		d[i] = s[i];
+		dst_casted[i] = src_casted[i];
 		i++;
 	}
 	return (dst);
