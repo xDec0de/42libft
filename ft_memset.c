@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:23 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/17 20:34:57 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:13:25 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	*ft_memset(void *str, int c, size_t len)
 	unsigned char	*casted_str;
 
 	casted_str = (unsigned char *) str;
-	while (len > 0)
+	while (len != 0)
 	{
-		casted_str[len] = c;
 		len--;
+		casted_str[len] = c;
 	}
 	return (str);
 }
