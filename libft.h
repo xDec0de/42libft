@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/20 16:47:13 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:52:30 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,23 @@ typedef struct s_list
  * 
  * @param c Type `int`: The character to check.
  * 
- * @return 1 if `c` is an alphabetic character, 0 otherwise.
+ * @return Type `int`: 1 if `c` is an alphabetic character, 0 otherwise.
  */
 int		ft_isalpha(int c);
 
+/**
+ * @brief Check whether a character is a digit. Mimics
+ * the `isdigit`function included by `ctype.h`
+ * 
+ * Characters are considered to be digits when they
+ * are higher or equal to `0` and lower or equal to
+ * '9'. ASCII values are used in order to determine
+ * whether a character is a digit or o not.
+ * 
+ * @param c Type `int`: The character to check.
+ * 
+ * @return Type `int`: 1 if `c` is a digit, 0 otherwise.
+ */
 int		ft_isdigit(int c);
 
 int		ft_isalnum(int c);
