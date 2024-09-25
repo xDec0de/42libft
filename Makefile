@@ -6,14 +6,14 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 13:04:02 by daniema3          #+#    #+#              #
-#    Updated: 2024/09/17 20:44:57 by daniema3         ###   ########.fr        #
+#    Updated: 2024/09/25 15:50:36 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:=	libft
+NAME			:=	libft.a
 
 CC				:=	gcc
-AR				:=	ar -rc
+AR				:=	ar -rcs
 CFLAGS			:=	-Wall -Werror -Wextra
 
 OBJDIR			:=	objects/
@@ -73,16 +73,16 @@ $(OBJDIR):
 	mkdir -p $@
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME).a $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 bonus: $(NAME) $(OBJS_BONUS)
-	$(AR) $(NAME).a $(OBJS_BONUS)
+	$(AR) $(NAME) $(OBJS_BONUS)
 
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -rf $(NAME).a
+	rm -rf $(NAME)
 
 re: fclean $(NAME)
 
