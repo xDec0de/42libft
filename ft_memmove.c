@@ -6,31 +6,38 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:18 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 19:34:19 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:34:56 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+static void	ft_move(char *dst, const char *src, size_t len)
 {
-	char	*dststr;
-	char	*srcstr;
 	size_t	i;
 
 	i = 0;
-	dststr = (char *) dst;
-	srcstr = (char *) src;
-	if (dststr > srcstr)
-		while (len-- > 0)
-			dststr[len] = srcstr[len];
-	else
+	while (i < len && src != dst)
 	{
-		while (i < len && srcstr != dststr)
-		{
-			dststr[i] = srcstr[i];
-			i++;
-		}
+		dst[i] = src[i];
+		i++;
 	}
-	return (dst);
+}
+
+static void	ft_move_reverse(char *dst, const char *src, size_t len)
+{
+	while (len > 0)
+	{
+		len--;
+		dst[len] = src[len];
+	}
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t len)
+{
+	if (dest > src)
+		ft_move_reverse(dest, src, len);
+	else
+		ft_move(dest, src, len);
+	return (dest);
 }

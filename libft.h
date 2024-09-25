@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 18:16:36 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:39:55 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_list
 /* LIBC FUNCTIONS */
 
 /**
- * @brief Checks whether a character is alphabetic. Mimics
- * the `isalpha` function included by `ctype.h`.
+ * @brief Checks whether a character is alphabetic or not.
+ * Mimics the `isalpha` function included by `ctype.h`.
  * 
  * Characters are considered to be alphabetic when
  * they are higher or equal to 'a' and lower or equal
@@ -42,8 +42,8 @@ typedef struct s_list
 int		ft_isalpha(int c);
 
 /**
- * @brief Check whether a character is a digit. Mimics
- * the `isdigit`function included by `ctype.h`
+ * @brief Checks whether a character is a digit or not.
+ * Mimics the `isdigit`function included by `ctype.h`
  * 
  * Characters are considered to be digits when they
  * are higher or equal to `0` and lower or equal to
@@ -75,7 +75,7 @@ void	ft_bzero(void	*str, size_t n);
  * is when both parameters are `NULL` and `n` is not 0, as it mimics the
  * `memcpy` function included by `string.h`. Also, this
  * function doesn't check if `n` is higher than the length
- * of `dest` or `src`.
+ * of `dest` or `src`. Memory areas must not overlap
  * 
  * @param dest The destination pointer at which to copy the
  * contents of `src`.
@@ -88,6 +88,18 @@ void	ft_bzero(void	*str, size_t n);
  */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
+/**
+ * @brief Copies `n` bytes of memory from `src` to `dest`.
+ * Contrary to `ft_memcpy', memory areas may overlap.q
+ * 
+ * @param dest The destination pointer at which to copy the
+ * contents of `src`.
+ * @param src The source pointer to get the content that will
+ * then be copied to `dest`.
+ * @param len The amount of bytes to copy.
+ * 
+ * @return Always `dest`.
+ */
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
