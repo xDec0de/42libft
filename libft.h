@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 16:42:23 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:15:43 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,28 @@ t_list	*ft_lstlast(t_list *lst);
 
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
+/**
+ * @brief Deletes the provided `lst` element by using
+ * the `del` function as well as `free` on it. This
+ * function will do nothing if `lst` or `lst::content`
+ * are `NULL`.
+ * 
+ * @param lst The `t_list` element to delete.
+ * @param del The function to call on `lst`.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
+/**
+ * @brief Clears the provided `lst`. This is done by
+ * iterating over `lst` to call `ft_lstdelone` on every
+ * element of it, which calls the `del` function on the
+ * element and frees it, skipping `NULL` content without
+ * crashing.
+ * 
+ * @param lst The `t_list` to clear.
+ * @param del The function to call on every element of
+ * `lst`, used as a parameter for `ft_lstdelone`.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
 /**
