@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/20 16:52:30 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:25:29 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+/* LIBC FUNCTIONS */
 
 /**
  * @brief Checks whether a character is alphabetic. Mimics
@@ -96,6 +98,8 @@ void	*ft_calloc(size_t count, size_t size);
 
 char	*ft_strdup(const char *s);
 
+/* ADDITIONAL FUNCTIONS */
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -118,6 +122,19 @@ void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
 
+/* BONUS FUNCTIONS */
+
+/**
+ * @brief Creates a new `t_list`, initializing
+ * its `t_list::content` with the `content` parameter,
+ * `t_list::next` will be `NULL`.
+ * 
+ * @param content The content to initialize
+ * `t_list::content` with.
+ * 
+ * @return Type `t_list`: The new 't_list', `NULL` if
+ * `malloc` fails.
+ */
 t_list	*ft_lstnew(void *content);
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
