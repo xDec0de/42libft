@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 17:30:50 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:16:36 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,19 @@ char	*ft_strdup(const char *s);
 
 /* ADDITIONAL FUNCTIONS */
 
+/**
+ * @brief Creates a substring of `s`, starting at `start` and
+ * ensuring a minimum length of `len`. Note that if `len` is
+ * lower than the expected length of the substring, the expected
+ * length will be used, that being `ft_strlen(&s[start])`.
+ * 
+ * @param s The string to get the substring from.
+ * @param start The index at which the substring will begin.
+ * @param len The minimum length of the substring.
+ * 
+ * @return A substring of `s`. `NULL` if `s` is `NULL` or
+ * `malloc` fails. An empty string if `s` is smaller than `start`.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(char const *s1, char const *s2);
