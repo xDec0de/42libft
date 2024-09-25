@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 16:25:29 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:42:23 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_list
  * 'A' to 'Z'. ASCII values are used in order to determine
  * whether a character is alphabetic or o not.
  * 
- * @param c Type `int`: The character to check.
+ * @param c The `int` character to check.
  * 
- * @return Type `int`: 1 if `c` is an alphabetic character, 0 otherwise.
+ * @return 1 if `c` is an alphabetic character, 0 otherwise.
  */
 int		ft_isalpha(int c);
 
@@ -50,9 +50,9 @@ int		ft_isalpha(int c);
  * '9'. ASCII values are used in order to determine
  * whether a character is a digit or o not.
  * 
- * @param c Type `int`: The character to check.
+ * @param c The `int` character to check.
  * 
- * @return Type `int`: 1 if `c` is a digit, 0 otherwise.
+ * @return 1 if `c` is a digit, 0 otherwise.
  */
 int		ft_isdigit(int c);
 
@@ -132,8 +132,7 @@ void	ft_putnbr_fd(int n, int fd);
  * @param content The content to initialize
  * `t_list::content` with.
  * 
- * @return Type `t_list`: The new 't_list', `NULL` if
- * `malloc` fails.
+ * @return The new 't_list', `NULL` if `malloc` fails.
  */
 t_list	*ft_lstnew(void *content);
 
@@ -149,6 +148,13 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
+/**
+ * @brief Iterates over `lst`, executing the provided
+ * function `f` until `lst::next` is `NULL`.
+ * 
+ * @param lst the `t_list` to iterate.
+ * @param f the function to apply to each element of `lst`.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
