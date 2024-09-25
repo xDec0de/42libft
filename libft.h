@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 17:15:43 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:30:50 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,25 @@ void	*ft_memset(void	*str, int c, size_t len);
 
 void	ft_bzero(void	*str, size_t n);
 
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+/**
+ * @brief Copies `n` bytes of memory from `src` to `dest`.
+ * This function intentionally crashes if `src` is `NULL` or
+ * `dest` is `NULL`, the only exception where it will not crash
+ * is when both parameters are `NULL` and `n` is not 0, as it mimics the
+ * `memcpy` function included by `string.h`. Also, this
+ * function doesn't check if `n` is higher than the length
+ * of `dest` or `src`.
+ * 
+ * @param dest The destination pointer at which to copy the
+ * contents of `src`.
+ * @param src The source pointer to get the content that will
+ * then be copied to `dest`.
+ * @param n The amount of bytes to copy.
+ * 
+ * @return `dest`, `NULL` only if both `dest` and `src` are
+ * `NULL` and `n` is not 0.
+ */
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
