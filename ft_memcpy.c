@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:34:12 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/18 18:48:41 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:19:03 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	*ft_memcpy(void	*dst, void const *src, size_t n)
 	char		*dst_casted;
 	char		*src_casted;
 
+	if (dst == NULL && src == NULL && n != 0)
+		return (NULL);
 	i = 0;
-	if (src == NULL || dst == NULL)
-		return (dst);
 	dst_casted = (char *) dst;
 	src_casted = (char *) src;
 	while (i < n)
