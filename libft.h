@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:37:27 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/25 16:25:29 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:39:55 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_list
 /* LIBC FUNCTIONS */
 
 /**
- * @brief Checks whether a character is alphabetic. Mimics
- * the `isalpha` function included by `ctype.h`.
+ * @brief Checks whether a character is alphabetic or not.
+ * Mimics the `isalpha` function included by `ctype.h`.
  * 
  * Characters are considered to be alphabetic when
  * they are higher or equal to 'a' and lower or equal
@@ -35,24 +35,24 @@ typedef struct s_list
  * 'A' to 'Z'. ASCII values are used in order to determine
  * whether a character is alphabetic or o not.
  * 
- * @param c Type `int`: The character to check.
+ * @param c The `int` character to check.
  * 
- * @return Type `int`: 1 if `c` is an alphabetic character, 0 otherwise.
+ * @return 1 if `c` is an alphabetic character, 0 otherwise.
  */
 int		ft_isalpha(int c);
 
 /**
- * @brief Check whether a character is a digit. Mimics
- * the `isdigit`function included by `ctype.h`
+ * @brief Checks whether a character is a digit or not.
+ * Mimics the `isdigit`function included by `ctype.h`
  * 
  * Characters are considered to be digits when they
  * are higher or equal to `0` and lower or equal to
  * '9'. ASCII values are used in order to determine
  * whether a character is a digit or o not.
  * 
- * @param c Type `int`: The character to check.
+ * @param c The `int` character to check.
  * 
- * @return Type `int`: 1 if `c` is a digit, 0 otherwise.
+ * @return 1 if `c` is a digit, 0 otherwise.
  */
 int		ft_isdigit(int c);
 
@@ -68,8 +68,38 @@ void	*ft_memset(void	*str, int c, size_t len);
 
 void	ft_bzero(void	*str, size_t n);
 
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+/**
+ * @brief Copies `n` bytes of memory from `src` to `dest`.
+ * This function intentionally crashes if `src` is `NULL` or
+ * `dest` is `NULL`, the only exception where it will not crash
+ * is when both parameters are `NULL` and `n` is not 0, as it mimics the
+ * `memcpy` function included by `string.h`. Also, this
+ * function doesn't check if `n` is higher than the length
+ * of `dest` or `src`. Memory areas must not overlap
+ * 
+ * @param dest The destination pointer at which to copy the
+ * contents of `src`.
+ * @param src The source pointer to get the content that will
+ * then be copied to `dest`.
+ * @param n The amount of bytes to copy.
+ * 
+ * @return `dest`, `NULL` only if both `dest` and `src` are
+ * `NULL` and `n` is not 0.
+ */
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
+/**
+ * @brief Copies `n` bytes of memory from `src` to `dest`.
+ * Contrary to `ft_memcpy', memory areas may overlap.q
+ * 
+ * @param dest The destination pointer at which to copy the
+ * contents of `src`.
+ * @param src The source pointer to get the content that will
+ * then be copied to `dest`.
+ * @param len The amount of bytes to copy.
+ * 
+ * @return Always `dest`.
+ */
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -100,6 +130,19 @@ char	*ft_strdup(const char *s);
 
 /* ADDITIONAL FUNCTIONS */
 
+/**
+ * @brief Creates a substring of `s`, starting at `start` and
+ * ensuring a minimum length of `len`. Note that if `len` is
+ * lower than the expected length of the substring, the expected
+ * length will be used, that being `ft_strlen(&s[start])`.
+ * 
+ * @param s The string to get the substring from.
+ * @param start The index at which the substring will begin.
+ * @param len The minimum length of the substring.
+ * 
+ * @return A substring of `s`. `NULL` if `s` is `NULL` or
+ * `malloc` fails. An empty string if `s` is smaller than `start`.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -132,8 +175,7 @@ void	ft_putnbr_fd(int n, int fd);
  * @param content The content to initialize
  * `t_list::content` with.
  * 
- * @return Type `t_list`: The new 't_list', `NULL` if
- * `malloc` fails.
+ * @return The new 't_list', `NULL` if `malloc` fails.
  */
 t_list	*ft_lstnew(void *content);
 
@@ -145,10 +187,37 @@ t_list	*ft_lstlast(t_list *lst);
 
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
+/**
+ * @brief Deletes the provided `lst` element by using
+ * the `del` function as well as `free` on it. This
+ * function will do nothing if `lst` or `lst::content`
+ * are `NULL`.
+ * 
+ * @param lst The `t_list` element to delete.
+ * @param del The function to call on `lst`.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
+/**
+ * @brief Clears the provided `lst`. This is done by
+ * iterating over `lst` to call `ft_lstdelone` on every
+ * element of it, which calls the `del` function on the
+ * element and frees it, skipping `NULL` content without
+ * crashing.
+ * 
+ * @param lst The `t_list` to clear.
+ * @param del The function to call on every element of
+ * `lst`, used as a parameter for `ft_lstdelone`.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
+/**
+ * @brief Iterates over `lst`, executing the provided
+ * function `f` until `lst::next` is `NULL`.
+ * 
+ * @param lst the `t_list` to iterate.
+ * @param f the function to apply to each element of `lst`.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
