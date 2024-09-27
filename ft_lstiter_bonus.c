@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:33:35 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 20:56:20 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:34:49 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == NULL || f == NULL)
+	if (f == NULL)
 		return ;
-	while (lst == NULL)
+	while (lst != NULL)
 	{
 		f(lst->content);
 		lst = lst->next;
