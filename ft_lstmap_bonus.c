@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:33:45 by daniema3          #+#    #+#             */
-/*   Updated: 2024/09/16 20:58:48 by daniema3         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:55:52 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 		return (NULL);
 	res = ft_lstnew(f(lst->content));
 	tmp = res;
-	while (lst->next)
+	while (lst->next != NULL)
 	{
 		lst = lst->next;
 		tmp->next = ft_lstnew(f(lst->content));
-		if (!tmp->next)
+		if (tmp->next == NULL)
 		{
 			ft_lstclear(&res, del);
 			return (NULL);
